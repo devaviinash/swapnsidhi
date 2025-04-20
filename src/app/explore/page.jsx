@@ -1,8 +1,79 @@
 'use client';
 
-import { Search } from "lucide-react";
+import { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence, useScroll, useTransform, useInView, useSpring } from 'framer-motion';
+import { Search, Filter, ChevronLeft, ChevronRight, SlidersHorizontal } from "lucide-react";
+import Image from 'next/image';
 
 export default function ExplorePage() {
+  // Animation and state management
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [activeFilter, setActiveFilter] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedIndustry, setSelectedIndustry] = useState("");
+  const [selectedExperience, setSelectedExperience] = useState("");
+  const [selectedLocation, setSelectedLocation] = useState("");
+  const [hoveredCard, setHoveredCard] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  
+  // Refs for scroll animations
+  const headerRef = useRef(null);
+  const filtersRef = useRef(null);
+  const mentorsGridRef = useRef(null);
+  
+  // Scroll animations
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
+  
+  // Check if sections are in view
+  const headerInView = useInView(headerRef, { once: false, amount: 0.3 });
+  const filtersInView = useInView(filtersRef, { once: false, amount: 0.3 });
+  const mentorsGridInView = useInView(mentorsGridRef, { once: false, amount: 0.1 });
+  
+  // Set loaded state on mount
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+  
+  // Filter mentors based on search and filter criteria
+  const filteredMentors = mentors.filter(mentor => {
+    // Search query filter
+    if (searchQuery && !mentor.name.toLowerCase().includes(searchQuery.toLowerCase()) && 
+        !mentor.bio.toLowerCase().includes(searchQuery.toLowerCase()) &&
+        !mentor.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()))) {
+      return false;
+    }
+    
+    // Industry filter
+    if (selectedIndustry && mentor.industry !== selectedIndustry) {
+      return false;
+    }
+    
+    // Experience filter
+    if (selectedExperience) {
+      const expNumber = parseInt(mentor.experience);
+      if (selectedExperience === "entry" && expNumber > 3) return false;
+      if (selectedExperience === "mid" && (expNumber < 4 || expNumber > 8)) return false;
+      if (selectedExperience === "senior" && (expNumber < 9 || expNumber > 15)) return false;
+      if (selectedExperience === "executive" && expNumber < 16) return false;
+    }
+    
+    // Location filter
+    if (selectedLocation && mentor.location !== selectedLocation) {
+      return false;
+    }
+    
+    return true;
+  });
+  
+  // Pagination
+  const mentorsPerPage = 6;
+  const totalPages = Math.ceil(filteredMentors.length / mentorsPerPage);
+  const currentMentors = filteredMentors.slice(
+    (currentPage - 1) * mentorsPerPage,
+    currentPage * mentorsPerPage
+  );
+  
   return (
     <div className="relative min-h-[calc(100vh-4rem)]">
       {/* Background decorative elements */}
