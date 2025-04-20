@@ -1,0 +1,195 @@
+/* Additional utility classes for opacity variants */
+
+/* Define opacity variations using proper Tailwind syntax */
+@layer utilities {
+  /* Base color utilities */
+  .bg-saffron {
+    @apply bg-saffron-500;
+  }
+
+  /* Use proper Tailwind opacity syntax */
+  .bg-saffron\/5 {
+    @apply bg-saffron-500/5;
+  }
+
+  .bg-saffron\/10 {
+    @apply bg-saffron-500/10;
+  }
+
+  .bg-saffron\/20 {
+    @apply bg-saffron-500/20;
+  }
+
+  .border-saffron\/30 {
+    @apply border-saffron-500/30;
+  }
+
+  .border-saffron\/50 {
+    @apply border-saffron-500/50;
+  }
+
+  .text-saffron\/40 {
+    @apply text-saffron-500/40;
+  }
+
+  .text-saffron\/80 {
+    @apply text-saffron-500/80;
+  }
+
+  .hover\:text-saffron\/80:hover {
+    @apply hover:text-saffron-500/80;
+  }
+
+  .hover\:bg-saffron\/10:hover {
+    @apply hover:bg-saffron-500/10;
+  }
+
+  .hover\:bg-saffron\/20:hover {
+    @apply hover:bg-saffron-500/20;
+  }
+
+  /* Gradient utilities using proper syntax */
+  .from-saffron {
+    --tw-gradient-from: hsl(var(--saffron-500)) var(--tw-gradient-from-position);
+    --tw-gradient-to: hsl(var(--saffron-500) / 0) var(--tw-gradient-to-position);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  }
+
+  .to-saffron {
+    --tw-gradient-to: hsl(var(--saffron-500)) var(--tw-gradient-to-position);
+  }
+
+  .via-saffron {
+    --tw-gradient-to: hsl(var(--saffron-500) / 0) var(--tw-gradient-to-position);
+    --tw-gradient-stops: var(--tw-gradient-from),
+      hsl(var(--saffron-500)) var(--tw-gradient-via-position),
+      var(--tw-gradient-to);
+  }
+
+  /* Shadow utilities using proper Tailwind syntax */
+  .shadow-saffron {
+    --tw-shadow-color: hsl(var(--saffron-500) / 0.3);
+    --tw-shadow: var(--tw-shadow-colored);
+  }
+
+  .shadow-saffron-light {
+    --tw-shadow-color: hsl(var(--saffron-300) / 0.3);
+    --tw-shadow: var(--tw-shadow-colored);
+  }
+}
+
+/* Animation delay utilities */
+@layer utilities {
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+  .animation-delay-1000 {
+    animation-delay: 1000ms;
+  }
+  .animation-delay-1500 {
+    animation-delay: 1500ms;
+  }
+  .animation-delay-2000 {
+    animation-delay: 2000ms;
+  }
+  .animation-delay-2500 {
+    animation-delay: 2500ms;
+  }
+}
+
+/* Improved touch interactions */
+@layer utilities {
+  .tap-highlight-transparent {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Better mobile text contrast */
+  .text-contrast-safe {
+    @apply text-stone-900 dark:text-cream-50;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Mobile-friendly hover states */
+  .hover-feedback {
+    @apply transition-all duration-200
+           active:scale-[0.98]
+           hover:brightness-105
+           focus-visible:ring-2 focus-visible:ring-saffron-500 focus-visible:ring-offset-2;
+  }
+
+  /* Enhanced mobile touch areas */
+  .touch-safe {
+    @apply min-h-[44px] min-w-[44px] cursor-pointer;
+  }
+
+  /* Safe area utilities */
+  .safe-padding {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+
+  /* Mobile-optimized gradients */
+  .gradient-overlay {
+    @apply bg-gradient-to-t from-stone-900/50 to-transparent;
+    backdrop-filter: blur(8px);
+  }
+
+  /* Responsive container paddings */
+  .container-safe {
+    @apply px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl
+           pt-safe-top pb-safe-bottom
+           pl-safe-left pr-safe-right;
+  }
+
+  /* Enhanced focus states for touch */
+  .focus-touch {
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-saffron-500
+           focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+
+  /* Mobile performance optimizations */
+  .gpu {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+}
+
+/* Luxury Card Effects */
+.luxury-card {
+  @apply relative overflow-hidden rounded-xl border border-white/10
+         bg-white/5 p-6 backdrop-blur-sm transition-all
+         hover:border-saffron-500/20 hover:bg-white/10
+         hover:shadow-lg hover:-translate-y-1;
+}
+
+/* Gold Border Effect */
+.gold-border-gradient {
+  @apply relative bg-clip-padding border border-transparent;
+}
+
+.gold-border-gradient::before {
+  content: "";
+  @apply absolute inset-0 -m-px rounded-[inherit] bg-gradient-to-r
+         from-gold-500 to-saffron-500 -z-10;
+}
+
+/* Shimmer Effect */
+.shimmer {
+  @apply relative overflow-hidden;
+}
+
+.shimmer::after {
+  content: "";
+  @apply absolute inset-0 -translate-x-full
+         bg-gradient-to-r from-transparent via-white/5 to-transparent;
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}

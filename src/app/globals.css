@@ -1,0 +1,854 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Premium Saffron Theme Colors - Enhanced contrast */
+    --saffron-50: 36 100% 97%;
+    --saffron-100: 35 91% 92%;
+    --saffron-200: 35 88% 81%;
+    --saffron-300: 35 87% 69%;
+    --saffron-400: 35 85% 57%;
+    --saffron-500: 35 85% 45%;
+    --saffron-600: 31 86% 39%;
+    --saffron-700: 27 87% 33%;
+    --saffron-800: 24 82% 29%;
+    --saffron-900: 23 77% 25%;
+    --saffron-950: 24 82% 15%;
+
+    /* Gold Accent Colors - Enhanced richness */
+    --gold-50: 41 100% 95%;
+    --gold-100: 40 96% 88%;
+    --gold-200: 38 97% 79%;
+    --gold-300: 36 93% 66%;
+    --gold-400: 36 90% 54%;
+    --gold-500: 35 91% 44%;
+    --gold-600: 33 91% 39%;
+    --gold-700: 30 91% 32%;
+    --gold-800: 28 89% 27%;
+    --gold-900: 27 87% 24%;
+    --gold-950: 26 93% 15%;
+
+    /* Updated Cream Colors for better contrast */
+    --cream-50: 35 25% 97%;
+    --cream-100: 35 30% 94%;
+    --cream-200: 35 35% 90%;
+    --cream-300: 35 40% 85%;
+    --cream-400: 35 45% 80%;
+    --cream-500: 35 50% 75%;
+    --cream-600: 35 55% 70%;
+    --cream-700: 35 60% 65%;
+    --cream-800: 35 65% 60%;
+    --cream-900: 35 70% 55%;
+
+    /* Rich Background Colors */
+    --luxe-dark: 25 30% 10%;
+    --luxe-medium: 30 25% 15%;
+    --luxe-light: 35 20% 20%;
+
+    /* System Colors with Better Contrast */
+    --background: 35 25% 95%;
+    --foreground: 24 82% 15%;
+    --card: 40 30% 97%;
+    --card-foreground: 24 82% 15%;
+    --popover: 40 30% 97%;
+    --popover-foreground: 24 82% 15%;
+    --primary: 35 85% 45%;
+    --primary-foreground: 35 70% 25%;
+    --secondary: 35 91% 92%;
+    --secondary-foreground: 24 82% 15%;
+    --muted: 35 25% 90%;
+    --muted-foreground: 24 82% 35%;
+    --accent: 35 85% 45%;
+    --accent-foreground: 40 70% 97%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 40 70% 97%;
+    --border: 35 91% 85%;
+    --input: 35 91% 85%;
+    --ring: 35 85% 45%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 24 30% 8%;
+    --foreground: 40 70% 97%;
+    --card: 24 30% 10%;
+    --card-foreground: 40 70% 97%;
+    --popover: 24 30% 10%;
+    --popover-foreground: 40 70% 97%;
+    --primary: 35 85% 45%;
+    --primary-foreground: 40 70% 97%;
+    --secondary: 24 30% 15%;
+    --secondary-foreground: 40 70% 97%;
+    --muted: 24 30% 15%;
+    --muted-foreground: 35 25% 75%;
+    --accent: 35 85% 45%;
+    --accent-foreground: 40 70% 97%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 40 70% 97%;
+    --border: 24 30% 20%;
+    --input: 24 30% 20%;
+    --ring: 35 85% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-playfair font-bold tracking-tight text-foreground;
+  }
+}
+
+/* Cream text color utility classes */
+.text-cream-50 {
+  color: hsl(var(--cream-50));
+}
+.text-cream-100 {
+  color: hsl(var(--cream-100));
+}
+.text-cream-200 {
+  color: hsl(var(--cream-200));
+}
+.text-cream-300 {
+  color: hsl(var(--cream-300));
+}
+.text-cream-400 {
+  color: hsl(var(--cream-400));
+}
+.text-cream-500 {
+  color: hsl(var(--cream-500));
+}
+
+/* Background color utilities for cream colors */
+.bg-cream-50 {
+  background-color: hsl(var(--cream-50));
+}
+.bg-cream-100 {
+  background-color: hsl(var(--cream-100));
+}
+.bg-cream-200 {
+  background-color: hsl(var(--cream-200));
+}
+.bg-cream-300 {
+  background-color: hsl(var(--cream-300));
+}
+.bg-cream-400 {
+  background-color: hsl(var(--cream-400));
+}
+.bg-cream-500 {
+  background-color: hsl(var(--cream-500));
+}
+
+/* Background gradient utilities with alpha values */
+.from-cream-50 {
+  --tw-gradient-from: hsl(var(--cream-50)) var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--cream-50) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-cream-100 {
+  --tw-gradient-from: hsl(var(--cream-100)) var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--cream-100) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-cream-200 {
+  --tw-gradient-from: hsl(var(--cream-200)) var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--cream-200) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-cream-300 {
+  --tw-gradient-from: hsl(var(--cream-300)) var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--cream-300) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-cream-400 {
+  --tw-gradient-from: hsl(var(--cream-400)) var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--cream-400) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-cream-500 {
+  --tw-gradient-from: hsl(var(--cream-500)) var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--cream-500) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+/* Alpha variants for cream gradients */
+.from-cream-50\/5 {
+  --tw-gradient-from: hsl(var(--cream-50) / 0.05)
+    var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--cream-50) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-cream-50\/10 {
+  --tw-gradient-from: hsl(var(--cream-50) / 0.1)
+    var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--cream-50) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-cream-50\/20 {
+  --tw-gradient-from: hsl(var(--cream-50) / 0.2)
+    var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--cream-50) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-cream-50\/30 {
+  --tw-gradient-from: hsl(var(--cream-50) / 0.3)
+    var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--cream-50) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-cream-50\/40 {
+  --tw-gradient-from: hsl(var(--cream-50) / 0.4)
+    var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--cream-50) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-cream-50\/50 {
+  --tw-gradient-from: hsl(var(--cream-50) / 0.5)
+    var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--cream-50) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-cream-50\/60 {
+  --tw-gradient-from: hsl(var(--cream-50) / 0.6)
+    var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--cream-50) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-cream-50\/70 {
+  --tw-gradient-from: hsl(var(--cream-50) / 0.7)
+    var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--cream-50) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-cream-50\/80 {
+  --tw-gradient-from: hsl(var(--cream-50) / 0.8)
+    var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--cream-50) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-cream-50\/90 {
+  --tw-gradient-from: hsl(var(--cream-50) / 0.9)
+    var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--cream-50) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.from-cream-100\/5 {
+  --tw-gradient-from: hsl(var(--cream-100) / 0.05)
+    var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--cream-100) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-cream-100\/10 {
+  --tw-gradient-from: hsl(var(--cream-100) / 0.1)
+    var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--cream-100) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-cream-100\/20 {
+  --tw-gradient-from: hsl(var(--cream-100) / 0.2)
+    var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--cream-100) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-cream-100\/30 {
+  --tw-gradient-from: hsl(var(--cream-100) / 0.3)
+    var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--cream-100) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-cream-100\/40 {
+  --tw-gradient-from: hsl(var(--cream-100) / 0.4)
+    var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--cream-100) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-cream-100\/50 {
+  --tw-gradient-from: hsl(var(--cream-100) / 0.5)
+    var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--cream-100) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-cream-100\/60 {
+  --tw-gradient-from: hsl(var(--cream-100) / 0.6)
+    var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--cream-100) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-cream-100\/70 {
+  --tw-gradient-from: hsl(var(--cream-100) / 0.7)
+    var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--cream-100) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-cream-100\/80 {
+  --tw-gradient-from: hsl(var(--cream-100) / 0.8)
+    var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--cream-100) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+.from-cream-100\/90 {
+  --tw-gradient-from: hsl(var(--cream-100) / 0.9)
+    var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--cream-100) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+/* Background alpha utilities for cream colors */
+.bg-cream-50\/5 {
+  background-color: hsl(var(--cream-50) / 0.05);
+}
+.bg-cream-50\/10 {
+  background-color: hsl(var(--cream-50) / 0.1);
+}
+.bg-cream-50\/20 {
+  background-color: hsl(var(--cream-50) / 0.2);
+}
+.bg-cream-50\/30 {
+  background-color: hsl(var(--cream-50) / 0.3);
+}
+.bg-cream-50\/40 {
+  background-color: hsl(var(--cream-50) / 0.4);
+}
+.bg-cream-50\/50 {
+  background-color: hsl(var(--cream-50) / 0.5);
+}
+.bg-cream-50\/60 {
+  background-color: hsl(var(--cream-50) / 0.6);
+}
+.bg-cream-50\/70 {
+  background-color: hsl(var(--cream-50) / 0.7);
+}
+.bg-cream-50\/80 {
+  background-color: hsl(var(--cream-50) / 0.8);
+}
+.bg-cream-50\/90 {
+  background-color: hsl(var(--cream-50) / 0.9);
+}
+
+.bg-cream-100\/5 {
+  background-color: hsl(var(--cream-100) / 0.05);
+}
+.bg-cream-100\/10 {
+  background-color: hsl(var(--cream-100) / 0.1);
+}
+.bg-cream-100\/20 {
+  background-color: hsl(var(--cream-100) / 0.2);
+}
+.bg-cream-100\/30 {
+  background-color: hsl(var(--cream-100) / 0.3);
+}
+.bg-cream-100\/40 {
+  background-color: hsl(var(--cream-100) / 0.4);
+}
+.bg-cream-100\/50 {
+  background-color: hsl(var(--cream-100) / 0.5);
+}
+.bg-cream-100\/60 {
+  background-color: hsl(var(--cream-100) / 0.6);
+}
+.bg-cream-100\/70 {
+  background-color: hsl(var(--cream-100) / 0.7);
+}
+.bg-cream-100\/80 {
+  background-color: hsl(var(--cream-100) / 0.8);
+}
+.bg-cream-100\/90 {
+  background-color: hsl(var(--cream-100) / 0.9);
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.2; }
+}
+
+/* Animation classes */
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-pulse {
+  animation: pulse 3s infinite;
+}
+
+@layer components {
+  /* Button Styles - Enhanced depth and better focus states */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-all duration-300 
+           shadow-sm hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-saffron-500 
+           focus-visible:ring-offset-2 active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-saffron-500 to-gold-500 text-cream-100 
+           hover:from-saffron-600 hover:to-gold-600 
+           shadow-md hover:shadow-lg shadow-saffron-500/40;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/90 
+           shadow-md hover:shadow-lg shadow-saffron-500/20;
+  }
+
+  .btn-ghost {
+    @apply text-foreground hover:bg-saffron-50 hover:text-saffron-600 
+           hover:shadow-sm focus-visible:bg-saffron-100;
+  }
+
+  .btn-premium {
+    @apply relative overflow-hidden rounded-lg border border-saffron-300/30 bg-gradient-to-r 
+           from-saffron-500 to-gold-500 px-6 py-3 font-semibold text-cream-50 shadow-md 
+           transition-all hover:shadow-lg shadow-saffron-500/30;
+  }
+
+  /* Input with better focus states */
+  .input {
+    @apply flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm 
+           file:border-0 file:bg-transparent file:text-sm file:font-medium 
+           placeholder:text-muted-foreground focus:outline-none focus:ring-2 
+           focus:ring-saffron-500 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  /* Card with depth and improved hover states */
+  .card {
+    @apply rounded-lg border border-saffron-100 bg-card text-card-foreground 
+           shadow-sm transition-all hover:shadow-lg hover:shadow-saffron-500/10 
+           hover:border-saffron-200;
+  }
+
+  /* Luxury card with proper depth and material design */
+  .luxury-card {
+    @apply relative overflow-hidden rounded-xl border border-saffron-200/30 
+           bg-gradient-to-b from-cream-100 to-cream-200 bg-opacity-90 p-8 
+           shadow-md transition-all hover:shadow-xl hover:shadow-saffron-500/10 
+           hover:border-saffron-300/40 backdrop-blur-md;
+  }
+
+  /* Navigation Link with proper focus states */
+  .nav-link {
+    @apply inline-flex items-center text-sm font-medium transition-colors 
+           text-saffron-900 hover:text-saffron-700 focus-visible:outline-none 
+           focus-visible:ring-2 focus-visible:ring-saffron-500 focus-visible:ring-offset-2 
+           disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  /* Gradients */
+  .gold-border-gradient {
+    @apply bg-gradient-to-r from-saffron-500 via-gold-500 to-saffron-600;
+  }
+
+  .shimmer {
+    @apply animate-shimmer bg-gradient-to-r from-saffron-400 via-gold-300 to-saffron-400 bg-[length:200%_100%];
+  }
+
+  /* Animation utility classes */
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-1;
+  }
+
+  /* Section styling */
+  .section-heading {
+    @apply font-playfair text-3xl md:text-4xl lg:text-5xl font-bold text-saffron-900;
+  }
+
+  .section-subheading {
+    @apply font-playfair text-sm uppercase tracking-widest text-saffron-600;
+  }
+
+  .section-divider {
+    @apply mx-auto mt-6 h-0.5 w-24 bg-gradient-to-r from-transparent via-saffron-300 to-transparent;
+  }
+
+  /* Dark mode container for enhanced contrast */
+  .dark-container {
+    @apply relative overflow-hidden rounded-xl border border-saffron-200/30 
+           bg-luxe-dark bg-opacity-90 text-cream-100 p-8 
+           shadow-lg transition-all hover:shadow-xl hover:shadow-saffron-500/20 
+           backdrop-blur-md;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.4s ease-out;
+}
+
+.animate-shimmer {
+  animation: shimmer 8s infinite linear;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for luxury feel */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--saffron-300));
+  border-radius: 6px;
+  border: 3px solid hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--saffron-500));
+}
+
+/* Hide scrollbar utility */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Via gradient utilities for cream colors */
+.via-cream-50 {
+  --tw-gradient-to: hsl(var(--cream-50) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from),
+    hsl(var(--cream-50)) var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+.via-cream-100 {
+  --tw-gradient-to: hsl(var(--cream-100) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from),
+    hsl(var(--cream-100)) var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+.via-cream-200 {
+  --tw-gradient-to: hsl(var(--cream-200) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from),
+    hsl(var(--cream-200)) var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+.via-cream-300 {
+  --tw-gradient-to: hsl(var(--cream-300) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from),
+    hsl(var(--cream-300)) var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+.via-cream-400 {
+  --tw-gradient-to: hsl(var(--cream-400) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from),
+    hsl(var(--cream-400)) var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+.via-cream-500 {
+  --tw-gradient-to: hsl(var(--cream-500) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from),
+    hsl(var(--cream-500)) var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+
+/* Via gradient utilities with alpha values */
+.via-cream-50\/5 {
+  --tw-gradient-to: hsl(var(--cream-50) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from),
+    hsl(var(--cream-50) / 0.05) var(--tw-gradient-via-position),
+    var(--tw-gradient-to);
+}
+.via-cream-50\/10 {
+  --tw-gradient-to: hsl(var(--cream-50) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from),
+    hsl(var(--cream-50) / 0.1) var(--tw-gradient-via-position),
+    var(--tw-gradient-to);
+}
+.via-cream-50\/20 {
+  --tw-gradient-to: hsl(var(--cream-50) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from),
+    hsl(var(--cream-50) / 0.2) var(--tw-gradient-via-position),
+    var(--tw-gradient-to);
+}
+.via-cream-50\/30 {
+  --tw-gradient-to: hsl(var(--cream-50) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from),
+    hsl(var(--cream-50) / 0.3) var(--tw-gradient-via-position),
+    var(--tw-gradient-to);
+}
+.via-cream-50\/40 {
+  --tw-gradient-to: hsl(var(--cream-50) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from),
+    hsl(var(--cream-50) / 0.4) var(--tw-gradient-via-position),
+    var(--tw-gradient-to);
+}
+.via-cream-50\/50 {
+  --tw-gradient-to: hsl(var(--cream-50) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from),
+    hsl(var(--cream-50) / 0.5) var(--tw-gradient-via-position),
+    var(--tw-gradient-to);
+}
+.via-cream-50\/60 {
+  --tw-gradient-to: hsl(var(--cream-50) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from),
+    hsl(var(--cream-50) / 0.6) var(--tw-gradient-via-position),
+    var(--tw-gradient-to);
+}
+.via-cream-50\/70 {
+  --tw-gradient-to: hsl(var(--cream-50) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from),
+    hsl(var(--cream-50) / 0.7) var(--tw-gradient-via-position),
+    var(--tw-gradient-to);
+}
+.via-cream-50\/80 {
+  --tw-gradient-to: hsl(var(--cream-50) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from),
+    hsl(var(--cream-50) / 0.8) var(--tw-gradient-via-position),
+    var(--tw-gradient-to);
+}
+.via-cream-50\/90 {
+  --tw-gradient-to: hsl(var(--cream-50) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from),
+    hsl(var(--cream-50) / 0.9) var(--tw-gradient-via-position),
+    var(--tw-gradient-to);
+}
+
+.via-cream-100\/5 {
+  --tw-gradient-to: hsl(var(--cream-100) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from),
+    hsl(var(--cream-100) / 0.05) var(--tw-gradient-via-position),
+    var(--tw-gradient-to);
+}
+.via-cream-100\/10 {
+  --tw-gradient-to: hsl(var(--cream-100) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from),
+    hsl(var(--cream-100) / 0.1) var(--tw-gradient-via-position),
+    var(--tw-gradient-to);
+}
+.via-cream-100\/20 {
+  --tw-gradient-to: hsl(var(--cream-100) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from),
+    hsl(var(--cream-100) / 0.2) var(--tw-gradient-via-position),
+    var(--tw-gradient-to);
+}
+.via-cream-100\/30 {
+  --tw-gradient-to: hsl(var(--cream-100) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from),
+    hsl(var(--cream-100) / 0.3) var(--tw-gradient-via-position),
+    var(--tw-gradient-to);
+}
+.via-cream-100\/40 {
+  --tw-gradient-to: hsl(var(--cream-100) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from),
+    hsl(var(--cream-100) / 0.4) var(--tw-gradient-via-position),
+    var(--tw-gradient-to);
+}
+.via-cream-100\/50 {
+  --tw-gradient-to: hsl(var(--cream-100) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from),
+    hsl(var(--cream-100) / 0.5) var(--tw-gradient-via-position),
+    var(--tw-gradient-to);
+}
+.via-cream-100\/60 {
+  --tw-gradient-to: hsl(var(--cream-100) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from),
+    hsl(var(--cream-100) / 0.6) var(--tw-gradient-via-position),
+    var(--tw-gradient-to);
+}
+.via-cream-100\/70 {
+  --tw-gradient-to: hsl(var(--cream-100) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from),
+    hsl(var(--cream-100) / 0.7) var(--tw-gradient-via-position),
+    var(--tw-gradient-to);
+}
+.via-cream-100\/80 {
+  --tw-gradient-to: hsl(var(--cream-100) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from),
+    hsl(var(--cream-100) / 0.8) var(--tw-gradient-via-position),
+    var(--tw-gradient-to);
+}
+.via-cream-100\/90 {
+  --tw-gradient-to: hsl(var(--cream-100) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from),
+    hsl(var(--cream-100) / 0.9) var(--tw-gradient-via-position),
+    var(--tw-gradient-to);
+}
+
+.via-cream-200\/5 {
+  --tw-gradient-to: hsl(var(--cream-200) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from),
+    hsl(var(--cream-200) / 0.05) var(--tw-gradient-via-position),
+    var(--tw-gradient-to);
+}
+.via-cream-200\/10 {
+  --tw-gradient-to: hsl(var(--cream-200) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from),
+    hsl(var(--cream-200) / 0.1) var(--tw-gradient-via-position),
+    var(--tw-gradient-to);
+}
+.via-cream-200\/20 {
+  --tw-gradient-to: hsl(var(--cream-200) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from),
+    hsl(var(--cream-200) / 0.2) var(--tw-gradient-via-position),
+    var(--tw-gradient-to);
+}
+.via-cream-200\/30 {
+  --tw-gradient-to: hsl(var(--cream-200) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from),
+    hsl(var(--cream-200) / 0.3) var(--tw-gradient-via-position),
+    var(--tw-gradient-to);
+}
+.via-cream-200\/40 {
+  --tw-gradient-to: hsl(var(--cream-200) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from),
+    hsl(var(--cream-200) / 0.4) var(--tw-gradient-via-position),
+    var(--tw-gradient-to);
+}
+.via-cream-200\/50 {
+  --tw-gradient-to: hsl(var(--cream-200) / 0.5) var(--tw-gradient-to-position);
+}
+
+/* To gradient utilities for cream colors */
+.to-cream-50 {
+  --tw-gradient-to: hsl(var(--cream-50)) var(--tw-gradient-to-position);
+}
+.to-cream-100 {
+  --tw-gradient-to: hsl(var(--cream-100)) var(--tw-gradient-to-position);
+}
+.to-cream-200 {
+  --tw-gradient-to: hsl(var(--cream-200)) var(--tw-gradient-to-position);
+}
+.to-cream-300 {
+  --tw-gradient-to: hsl(var(--cream-300)) var(--tw-gradient-to-position);
+}
+.to-cream-400 {
+  --tw-gradient-to: hsl(var(--cream-400)) var(--tw-gradient-to-position);
+}
+.to-cream-500 {
+  --tw-gradient-to: hsl(var(--cream-500)) var(--tw-gradient-to-position);
+}
+
+/* To gradient utilities with alpha values */
+.to-cream-50\/5 {
+  --tw-gradient-to: hsl(var(--cream-50) / 0.05) var(--tw-gradient-to-position);
+}
+.to-cream-50\/10 {
+  --tw-gradient-to: hsl(var(--cream-50) / 0.1) var(--tw-gradient-to-position);
+}
+.to-cream-50\/20 {
+  --tw-gradient-to: hsl(var(--cream-50) / 0.2) var(--tw-gradient-to-position);
+}
+.to-cream-50\/30 {
+  --tw-gradient-to: hsl(var(--cream-50) / 0.3) var(--tw-gradient-to-position);
+}
+.to-cream-50\/40 {
+  --tw-gradient-to: hsl(var(--cream-50) / 0.4) var(--tw-gradient-to-position);
+}
+.to-cream-50\/50 {
+  --tw-gradient-to: hsl(var(--cream-50) / 0.5) var(--tw-gradient-to-position);
+}
+.to-cream-50\/60 {
+  --tw-gradient-to: hsl(var(--cream-50) / 0.6) var(--tw-gradient-to-position);
+}
+.to-cream-50\/70 {
+  --tw-gradient-to: hsl(var(--cream-50) / 0.7) var(--tw-gradient-to-position);
+}
+.to-cream-50\/80 {
+  --tw-gradient-to: hsl(var(--cream-50) / 0.8) var(--tw-gradient-to-position);
+}
+.to-cream-50\/90 {
+  --tw-gradient-to: hsl(var(--cream-50) / 0.9) var(--tw-gradient-to-position);
+}
+
+.to-cream-100\/5 {
+  --tw-gradient-to: hsl(var(--cream-100) / 0.05) var(--tw-gradient-to-position);
+}
+.to-cream-100\/10 {
+  --tw-gradient-to: hsl(var(--cream-100) / 0.1) var(--tw-gradient-to-position);
+}
+.to-cream-100\/20 {
+  --tw-gradient-to: hsl(var(--cream-100) / 0.2) var(--tw-gradient-to-position);
+}
+.to-cream-100\/30 {
+  --tw-gradient-to: hsl(var(--cream-100) / 0.3) var(--tw-gradient-to-position);
+}
+.to-cream-100\/40 {
+  --tw-gradient-to: hsl(var(--cream-100) / 0.4) var(--tw-gradient-to-position);
+}
+.to-cream-100\/50 {
+  --tw-gradient-to: hsl(var(--cream-100) / 0.5) var(--tw-gradient-to-position);
+}
+.to-cream-100\/60 {
+  --tw-gradient-to: hsl(var(--cream-100) / 0.6) var(--tw-gradient-to-position);
+}
+.to-cream-100\/70 {
+  --tw-gradient-to: hsl(var(--cream-100) / 0.7) var(--tw-gradient-to-position);
+}
+.to-cream-100\/80 {
+  --tw-gradient-to: hsl(var(--cream-100) / 0.8) var(--tw-gradient-to-position);
+}
+.to-cream-100\/90 {
+  --tw-gradient-to: hsl(var(--cream-100) / 0.9) var(--tw-gradient-to-position);
+}
+
+.to-cream-200\/5 {
+  --tw-gradient-to: hsl(var(--cream-200) / 0.05) var(--tw-gradient-to-position);
+}
+.to-cream-200\/10 {
+  --tw-gradient-to: hsl(var(--cream-200) / 0.1) var(--tw-gradient-to-position);
+}
+.to-cream-200\/20 {
+  --tw-gradient-to: hsl(var(--cream-200) / 0.2) var(--tw-gradient-to-position);
+}
+.to-cream-200\/30 {
+  --tw-gradient-to: hsl(var(--cream-200) / 0.3) var(--tw-gradient-to-position);
+}
+.to-cream-200\/40 {
+  --tw-gradient-to: hsl(var(--cream-200) / 0.4) var(--tw-gradient-to-position);
+}
+.to-cream-200\/50 {
+  --tw-gradient-to: hsl(var(--cream-200) / 0.5) var(--tw-gradient-to-position);
+}
