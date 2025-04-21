@@ -162,19 +162,19 @@ const team = [
   {
     name: "Vijay Pawar",
     role: "Founder & Chairman",
-    bio: "With 15+ years in technology and community building, Rajendra leads our mission to connect and empower the Maratha community.",
+    bio: "Experienced Promoter with a demonstrated history of working in the financial services industry. Skilled in Risk Management, Distributin Management, Claims Management, Liability, and Lega Advice. STring business development professional with a L.L.B. focused in Law from Vikram University",
     image: "/vijaypawar.png",
   },
   {
     name: "Rohit Jagtap",
     role: "Managing Director",
-    bio: "A veteran educator and community leader, Deepika ensures the quality and effectiveness of our mentorship programs.",
+    bio: "Turning security threats into digital fortresses. Making cybersecurity not just a service, but a guarantee.",
     image: "/rohit.png",
   },
   {
     name: "Rushikesh Hapse",
     role: "Managing Director",
-    bio: "Tech innovator with a passion for creating platforms that bring communities together and foster growth.",
+    bio: "Your network's guardian. Breaking systems to build them stronger. Security isn't just a feature—it's an art.",
     image: "/rushi.jpg",
   },
 ];
