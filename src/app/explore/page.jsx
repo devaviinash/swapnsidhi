@@ -1,9 +1,22 @@
-'use client';
+"use client";
 
-import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useScroll, useTransform, useInView, useSpring } from 'framer-motion';
-import { Search, Filter, ChevronLeft, ChevronRight, SlidersHorizontal } from "lucide-react";
-import Image from 'next/image';
+import { useState, useEffect, useRef } from "react";
+import {
+  motion,
+  AnimatePresence,
+  useScroll,
+  useTransform,
+  useInView,
+  useSpring,
+} from "framer-motion";
+import {
+  Search,
+  Filter,
+  ChevronLeft,
+  ChevronRight,
+  SlidersHorizontal,
+} from "lucide-react";
+import Image from "next/image";
 
 export default function ExplorePage() {
   // Animation and state management
@@ -15,57 +28,67 @@ export default function ExplorePage() {
   const [selectedLocation, setSelectedLocation] = useState("");
   const [hoveredCard, setHoveredCard] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-  
+
   // Refs for scroll animations
   const headerRef = useRef(null);
   const filtersRef = useRef(null);
   const mentorsGridRef = useRef(null);
-  
+
   // Scroll animations
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
-  
+
   // Check if sections are in view
   const headerInView = useInView(headerRef, { once: false, amount: 0.3 });
   const filtersInView = useInView(filtersRef, { once: false, amount: 0.3 });
-  const mentorsGridInView = useInView(mentorsGridRef, { once: false, amount: 0.1 });
-  
+  const mentorsGridInView = useInView(mentorsGridRef, {
+    once: false,
+    amount: 0.1,
+  });
+
   // Set loaded state on mount
   useEffect(() => {
     setIsLoaded(true);
   }, []);
-  
+
   // Filter mentors based on search and filter criteria
-  const filteredMentors = mentors.filter(mentor => {
+  const filteredMentors = mentors.filter((mentor) => {
     // Search query filter
-    if (searchQuery && !mentor.name.toLowerCase().includes(searchQuery.toLowerCase()) && 
-        !mentor.bio.toLowerCase().includes(searchQuery.toLowerCase()) &&
-        !mentor.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()))) {
+    if (
+      searchQuery &&
+      !mentor.name.toLowerCase().includes(searchQuery.toLowerCase()) &&
+      !mentor.bio.toLowerCase().includes(searchQuery.toLowerCase()) &&
+      !mentor.tags.some((tag) =>
+        tag.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+    ) {
       return false;
     }
-    
+
     // Industry filter
     if (selectedIndustry && mentor.industry !== selectedIndustry) {
       return false;
     }
-    
+
     // Experience filter
     if (selectedExperience) {
       const expNumber = parseInt(mentor.experience);
       if (selectedExperience === "entry" && expNumber > 3) return false;
-      if (selectedExperience === "mid" && (expNumber < 4 || expNumber > 8)) return false;
-      if (selectedExperience === "senior" && (expNumber < 9 || expNumber > 15)) return false;
+      if (selectedExperience === "mid" && (expNumber < 4 || expNumber > 8))
+        return false;
+      if (selectedExperience === "senior" && (expNumber < 9 || expNumber > 15))
+        return false;
       if (selectedExperience === "executive" && expNumber < 16) return false;
     }
-    
+
     // Location filter
     if (selectedLocation && mentor.location !== selectedLocation) {
       return false;
     }
-    
+
     return true;
   });
-  
+
   // Pagination
   const mentorsPerPage = 6;
   const totalPages = Math.ceil(filteredMentors.length / mentorsPerPage);
@@ -73,7 +96,7 @@ export default function ExplorePage() {
     (currentPage - 1) * mentorsPerPage,
     currentPage * mentorsPerPage
   );
-  
+
   return (
     <div className="relative min-h-[calc(100vh-4rem)]">
       {/* Background decorative elements */}
@@ -205,10 +228,16 @@ export default function ExplorePage() {
                     {/* Bottom Section */}
                     <div className="space-y-4">
                       <div>
-                        <h3 className="text-xl font-bold text-white">{mentor.name}</h3>
-                        <p className="text-sm text-white/80">{mentor.location} • {mentor.experience}+ years</p>
+                        <h3 className="text-xl font-bold text-white">
+                          {mentor.name}
+                        </h3>
+                        <p className="text-sm text-white/80">
+                          {mentor.location} • {mentor.experience}+ years
+                        </p>
                       </div>
-                      <p className="line-clamp-2 text-sm text-white/70">{mentor.bio}</p>
+                      <p className="line-clamp-2 text-sm text-white/70">
+                        {mentor.bio}
+                      </p>
                       <div className="flex flex-wrap gap-2">
                         {mentor.tags.map((tag) => (
                           <span
@@ -269,7 +298,7 @@ export default function ExplorePage() {
 const mentors = [
   {
     id: "1",
-    name: "Arjun Deshmukh",
+    name: "Ashwin Sawant",
     industry: "Technology",
     bio: "Senior Software Engineer with 8+ years of experience building scalable web applications and mentoring junior developers.",
     experience: 8,
@@ -281,7 +310,7 @@ const mentors = [
   },
   {
     id: "2",
-    name: "Priya Jadhav",
+    name: "Vinay Pawar",
     industry: "Medicine",
     bio: "Cardiologist with a focus on preventative care and 12 years of clinical experience at leading hospitals.",
     experience: 12,
@@ -305,7 +334,7 @@ const mentors = [
   },
   {
     id: "4",
-    name: "Neha Shinde",
+    name: "Mahesh Shinde",
     industry: "Government",
     bio: "Former state government official with expertise in public policy, administration, and government relations.",
     experience: 20,
@@ -317,7 +346,7 @@ const mentors = [
   },
   {
     id: "5",
-    name: "Rohit Pawar",
+    name: "Nikhil Pawar",
     industry: "Business",
     bio: "Serial entrepreneur who has founded three successful startups and mentors aspiring business owners in the tech sector.",
     experience: 10,
