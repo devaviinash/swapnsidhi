@@ -150,7 +150,6 @@ export default function RootLayout({ children }) {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-stone-500 hover:text-saffron-600 transition-colors"
-                    aria-label="LinkedIn"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -175,6 +174,7 @@ export default function RootLayout({ children }) {
                   Resources
                 </h3>
                 <ul className="mt-4 space-y-3">
+                  aria-label="LinkedIn"
                   <li>
                     <a
                       href="/about"
