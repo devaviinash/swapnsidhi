@@ -7,11 +7,16 @@ import { Button } from "./button";
 
 export function AuthHeader() {
   const router = useRouter();
-  const [userRole, setUserRole] = useState<"mentor" | "mentee" | null>(null);
+  const [userRole, setUserRole] =
+    (useState < "mentor") | "mentee" | (null > null);
 
   useEffect(() => {
-    const role = localStorage.getItem("userRole") as "mentor" | "mentee" | null;
-    setUserRole(role);
+    const role = localStorage.getItem("userRole");
+    if (role === "mentor" || role === "mentee") {
+      setUserRole(role);
+    } else {
+      setUserRole(null);
+    }
   }, []);
 
   const handleLogout = () => {
@@ -23,7 +28,10 @@ export function AuthHeader() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-saffron-200/20 bg-background/95 backdrop-blur-sm shadow-sm">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
-        <ClientLink href={`/dashboard/${userRole}`} className="flex items-center space-x-2">
+        <ClientLink
+          href={`/dashboard/${userRole}`}
+          className="flex items-center space-x-2"
+        >
           <div className="h-8 w-8 rounded-full bg-gradient-to-r from-saffron-400 to-gold-500 shadow-sm" />
           <span className="font-playfair text-xl font-bold text-stone-900">
             Swapnasiddhi
@@ -55,7 +63,7 @@ export function AuthHeader() {
           ) : (
             <>
               <ClientLink
-                href="/explore"
+                href="/mentors"
                 className="text-stone-700 hover:text-saffron-600 transition-colors"
               >
                 Find Mentors
@@ -80,7 +88,9 @@ export function AuthHeader() {
           </Button>
           <div className="relative h-8 w-8 overflow-hidden rounded-full border-2 border-saffron-200">
             <img
-              src={`https://i.pravatar.cc/100?img=${userRole === "mentor" ? "11" : "12"}`}
+              src={`https://i.pravatar.cc/100?img=${
+                userRole === "mentor" ? "11" : "12"
+              }`}
               alt="Profile"
               className="h-full w-full object-cover"
             />

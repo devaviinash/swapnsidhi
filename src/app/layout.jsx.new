@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
             </a>
             <nav className="flex items-center space-x-6">
               <a href="/" className="text-sm font-medium hover:text-saffron-600 transition-colors">Home</a>
-              <a href="/explore" className="text-sm font-medium hover:text-saffron-600 transition-colors">Explore</a>
+              <a href="/mentors" className="text-sm font-medium hover:text-saffron-600 transition-colors">Mentors</a>
               <a href="/about" className="text-sm font-medium hover:text-saffron-600 transition-colors">About</a>
               <a href="/signup" className="bg-gradient-to-r from-saffron-600 to-gold-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:from-saffron-700 hover:to-gold-700 transition-colors">Sign Up</a>
             </nav>
