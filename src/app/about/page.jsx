@@ -162,7 +162,7 @@ const team = [
   {
     name: "Vijay Pawar",
     role: "Founder & Chairman",
-    bio: "Experienced Promoter with a demonstrated history of working in the financial services industry. Skilled in Risk Management, Distributin Management, Claims Management, Liability, and Lega Advice. STring business development professional with a L.L.B. focused in Law from Vikram University",
+    bio: "Experienced Promoter with a demonstrated history of working in the financial services industry. Skilled in Risk Management, Distribution Management, Claims Management, Liability, and Legal Advice. Strong business development professional with a L.L.B. focused in Law from Vikram University",
     image: "/vijaypawar.png",
   },
   {
