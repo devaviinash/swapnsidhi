@@ -174,7 +174,6 @@ export default function RootLayout({ children }) {
                   Resources
                 </h3>
                 <ul className="mt-4 space-y-3">
-                  aria-label="LinkedIn"
                   <li>
                     <a
                       href="/about"
